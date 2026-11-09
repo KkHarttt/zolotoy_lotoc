@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Золотой Лотос — ресторан китайской кухни</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --emerald:#0E3B32; --emerald-2:#165446; --jade:#2E8B6E;
+  --gold:#D4A94A; --gold-2:#F0CF86; --lacquer:#8E2A1E;
+  --bg:#FBF5E6; --surface:#FFFFFF; --ink:#23201A; --muted:#645D4C; --line:#E8DDBF;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#101A17;--surface:#17251F;--ink:#F3EBD5;--muted:#B9B096;--line:#2B3D35}
+}
+:root[data-theme="dark"]{--bg:#101A17;--surface:#17251F;--ink:#F3EBD5;--muted:#B9B096;--line:#2B3D35}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--emerald);z-index:60}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+h1,h2,h3{font-family:var(--serif);line-height:1.1;margin:0;font-weight:700}
+h2{font-size:clamp(2.1rem,5vw,3.2rem);color:var(--emerald)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) h2{color:var(--gold-2)}}
+:root[data-theme="dark"] h2{color:var(--gold-2)}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+section{padding:clamp(64px,9vw,112px) 0}
+.lead{max-width:60ch;color:var(--muted)}
+.head{margin-bottom:44px}
+.head p{margin:14px 0 0}
+
+/* Header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(14,59,50,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,169,74,.35)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--serif);font-size:1.55rem;font-weight:700;color:var(--gold-2);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--gold);color:var(--emerald);font-size:1.05rem}
+nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+nav a{color:#EFE6CC;text-decoration:none;font-size:.95rem;font-weight:500;position:relative;padding:6px 0}
+nav a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+nav a:hover::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1px solid rgba(240,207,134,.5);color:var(--gold-2);border-radius:10px;width:44px;height:44px;font-size:1.3rem;cursor:pointer}
+
+/* Buttons */
+.btn{display:inline-block;padding:15px 30px;border-radius:999px;font-weight:700;text-decoration:none;background:var(--gold);color:var(--emerald);border:2px solid var(--gold);transition:transform .25s,box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(212,169,74,.4);background:var(--gold-2)}
+.btn.ghost{background:transparent;color:var(--gold-2)}
+.btn.ghost:hover{background:rgba(240,207,134,.12);box-shadow:none}
+
+/* Hero */
+.hero{background:radial-gradient(900px 500px at 80% 20%,var(--emerald-2),transparent 70%),var(--emerald);color:#F6EEDA;padding:clamp(72px,12vw,140px) 0;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.8rem,8vw,5.6rem);color:var(--gold-2)}
+.hero p{font-size:1.2rem;max-width:46ch;margin:22px 0 34px;color:#E3DAC0}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.seal{position:relative;width:min(340px,80vw);aspect-ratio:1;margin-inline:auto;display:grid;place-items:center}
+.seal::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px dashed var(--gold);animation:spin 40s linear infinite}
+.seal::after{content:"";position:absolute;inset:26px;border-radius:50%;border:1px solid rgba(240,207,134,.5)}
+.seal span{font-family:var(--serif);font-size:clamp(5rem,16vw,8rem);color:var(--emerald);width:62%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 30% 25%,var(--gold-2),var(--gold) 60%,#A87F2B);box-shadow:0 20px 50px rgba(0,0,0,.4);line-height:1}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* About */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.about p{color:var(--muted);margin:0 0 16px}
+.facts{display:grid;gap:14px}
+.fact{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--jade);border-radius:14px;padding:18px 22px;transition:transform .3s,box-shadow .3s}
+.fact:hover{transform:translateX(6px);box-shadow:0 10px 26px rgba(14,59,50,.12)}
+.fact strong{font-family:var(--serif);font-size:1.5rem;color:var(--lacquer);display:block}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .fact strong{color:var(--gold)}}
+:root[data-theme="dark"] .fact strong{color:var(--gold)}
+
+/* Menu */
+.menu{background:linear-gradient(180deg,transparent,rgba(46,139,110,.08))}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.dish{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px;transition:transform .35s,box-shadow .35s,border-color .35s}
+.dish:hover{transform:translateY(-8px);box-shadow:0 22px 40px rgba(14,59,50,.16);border-color:var(--gold)}
+.glyph{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:2.4rem;color:var(--gold-2);background:linear-gradient(135deg,var(--emerald),var(--jade));margin-bottom:18px;transition:transform .5s}
+.dish:hover .glyph{transform:rotate(12deg) scale(1.08)}
+.dish h3{font-size:1.6rem;margin-bottom:8px}
+.dish p{margin:0 0 16px;color:var(--muted);font-size:.97rem}
+.price{font-weight:700;color:var(--lacquer)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .price{color:var(--gold)}}
+:root[data-theme="dark"] .price{color:var(--gold)}
+
+/* Promos */
+.promos{background:var(--emerald);color:#F6EEDA}
+.promos h2{color:var(--gold-2)}
+.promos .lead{color:#CFE0D8}
+.promo{border:1px solid rgba(240,207,134,.4);border-radius:20px;padding:30px;background:rgba(255,255,255,.04);transition:transform .35s,background .35s}
+.promo:hover{transform:translateY(-6px) rotate(-.6deg);background:rgba(240,207,134,.1)}
+.promo .big{font-family:var(--serif);font-size:3.2rem;color:var(--gold);line-height:1}
+.promo h3{font-size:1.5rem;margin:12px 0 8px;color:#fff}
+.promo p{margin:0;color:#D8E4DD;font-size:.97rem}
+.promo small{display:block;margin-top:14px;color:var(--gold-2)}
+
+/* Loyalty */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:36px}
+.tier{background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--c);border-radius:18px;padding:28px;transition:transform .3s,box-shadow .3s}
+.tier:hover{transform:translateY(-6px);box-shadow:0 18px 34px rgba(14,59,50,.14)}
+.tier h3{font-size:1.7rem}
+.tier .pct{font-family:var(--serif);font-size:2.6rem;color:var(--c);font-weight:700;display:block;margin:6px 0}
+.tier p{margin:0;color:var(--muted);font-size:.97rem}
+.rules{background:var(--surface);border:1px dashed var(--gold);border-radius:18px;padding:26px 30px}
+.rules h3{font-size:1.5rem;margin-bottom:12px}
+.rules ul{margin:0;padding-left:20px;color:var(--muted)}
+.rules li{margin:6px 0}
+
+/* Contacts */
+.contacts{background:linear-gradient(180deg,rgba(46,139,110,.08),transparent)}
+.contacts .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:30px}
+.card h3{font-size:1.6rem;margin-bottom:14px}
+.card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 22px}
+.card dt{color:var(--muted)}
+.card dd{margin:0;font-weight:500}
+.card p{margin:0 0 10px}
+.card a{color:var(--jade);font-weight:700;text-decoration:none;border-bottom:2px solid transparent;transition:border-color .2s}
+.card a:hover{border-color:var(--jade)}
+
+footer{background:var(--emerald);color:#CFE0D8;text-align:center;padding:30px 20px calc(30px + env(safe-area-inset-bottom,0px));font-size:.92rem}
+footer b{color:var(--gold-2);font-family:var(--serif);font-size:1.2rem}
+
+@media (max-width:900px){
+  .hero .wrap,.about .wrap,.contacts .wrap{grid-template-columns:1fr}
+  .grid,.tiers{grid-template-columns:1fr 1fr}
+  .seal{order:-1;width:min(240px,60vw)}
+}
+@media (max-width:720px){
+  .burger{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--emerald);max-height:0;overflow:hidden;transition:max-height .4s}
+  nav.open{max-height:420px;border-bottom:1px solid rgba(212,169,74,.35)}
+  nav ul{flex-direction:column;gap:0;padding:8px 20px 16px}
+  nav a{display:block;padding:14px 0;font-size:1.05rem}
+  .grid,.tiers{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top"><b>蓮</b>Золотой Лотос</a>
+    <button class="burger" aria-label="Открыть меню" aria-expanded="false" id="burger">☰</button>
+    <nav id="nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#menu">Меню</a></li>
+        <li><a href="#promo">Акции</a></li>
+        <li><a href="#loyalty">Бонусы</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Вкус Китая, который хочется повторить</h1>
+        <p>Настоящая кухня Поднебесной: огонь вока, свежие продукты и рецепты, которые передаются из поколения в поколение.</p>
+        <div class="cta">
+          <a class="btn" href="#contacts">Забронировать стол</a>
+          <a class="btn ghost" href="#menu">Смотреть меню</a>
+        </div>
+      </div>
+      <div class="seal" aria-hidden="true"><span>蓮</span></div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div>
+        <h2>История «Золотого Лотоса»</h2>
+        <p style="margin-top:22px">Всё началось в 2009 году с маленькой кухни и семейной книги рецептов шеф-повара Ли Вэя, привезённой из Чэнду. Он хотел готовить так, как готовила его бабушка: без полуфабрикатов и компромиссов.</p>
+        <p>Лотос в Китае — символ чистоты и удачи, а золото — благополучия. Так появилось название, под которым сегодня гостей встречает наша команда.</p>
+        <p>Мы закупаем овощи у местных фермеров, а специи и чаи привозим из провинций Сычуань и Юньнань. Каждый гость для нас — часть большой семьи.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><strong>с 2009 года</strong>готовим для гостей и друзей</div>
+        <div class="fact"><strong>60+ блюд</strong>сычуаньской, кантонской и пекинской кухни</div>
+        <div class="fact"><strong>4 шеф-повара</strong>родом из разных регионов Китая</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <div class="head">
+        <h2>Фирменные блюда</h2>
+        <p class="lead">Шесть позиций, с которых мы советуем начать знакомство с нашей кухней.</p>
+      </div>
+      <div class="grid">
+        <article class="dish"><div class="glyph" aria-hidden="true">鸭</div><h3>Утка по-пекински</h3><p>Хрустящая корочка, тонкие блинчики, соус хойсин и свежий огурец.</p><span class="price">2 400 ₽</span></article>
+        <article class="dish"><div class="glyph" aria-hidden="true">点</div><h3>Димсамы с креветками</h3><p>Паровые корзинки с прозрачным тестом и сочной начинкой.</p><span class="price">690 ₽</span></article>
+        <article class="dish"><div class="glyph" aria-hidden="true">鸡</div><h3>Курица Кунг Пао</h3><p>Обжаренная в воке курица с арахисом, чили и сычуаньским перцем.</p><span class="price">620 ₽</span></article>
+        <article class="dish"><div class="glyph" aria-hidden="true">豆</div><h3>Мапо тофу</h3><p>Нежный тофу в пряном соусе с фаршем. Для любителей остренького.</p><span class="price">540 ₽</span></article>
+        <article class="dish"><div class="glyph" aria-hidden="true">面</div><h3>Лапша ручной вытяжки</h3><p>Свежая лапша в наваристом бульоне с томлёной говядиной.</p><span class="price">580 ₽</span></article>
+        <article class="dish"><div class="glyph" aria-hidden="true">猪</div><h3>Свинина в кисло-сладком соусе</h3><p>Золотистые кусочки в яркой глазури из ананаса и рисового уксуса.</p><span class="price">640 ₽</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="promos" id="promo">
+    <div class="wrap">
+      <div class="head">
+        <h2>Акции</h2>
+        <p class="lead">Выгодные предложения для будней, компаний и тех, кто любит заказывать домой.</p>
+      </div>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr))">
+        <article class="promo"><div class="big">−20%</div><h3>Обед по будням</h3><p>Скидка на комплексные обеды с 12:00 до 16:00: суп, горячее и чай.</p><small>Действует с понедельника по пятницу</small></article>
+        <article class="promo"><div class="big">2+1</div><h3>Димсамы в подарок</h3><p>Закажите две корзинки димсамов — третью принесём бесплатно.</p><small>Каждый четверг и пятницу</small></article>
+        <article class="promo"><div class="big">−15%</div><h3>День рождения</h3><p>Скидка именинникам и десерт от шефа. Нужен паспорт, действует 3 дня до и после даты.</p><small>Бронь стола за 1 день</small></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="loyalty">
+    <div class="wrap">
+      <div class="head">
+        <h2>Бонусная программа</h2>
+        <p class="lead">Чем чаще вы с нами, тем больше возвращаем баллами. Карта оформляется бесплатно при первом визите.</p>
+      </div>
+      <div class="tiers">
+        <article class="tier" style="--c:#2E8B6E"><h3>Нефрит</h3><span class="pct">3%</span><p>Стартовый уровень. Баллы начисляются с первого заказа.</p></article>
+        <article class="tier" style="--c:#C79A33"><h3>Золото</h3><span class="pct">5%</span><p>Открывается после 15 000 ₽ общих трат. Плюс чай в подарок к каждому визиту.</p></article>
+        <article class="tier" style="--c:#8E2A1E"><h3>Дракон</h3><span class="pct">8%</span><p>Открывается после 50 000 ₽. Приоритетная бронь и дегустационный сет раз в год.</p></article>
+      </div>
+      <div class="rules">
+        <h3>Правила программы</h3>
+        <ul>
+          <li>1 балл равен 1 ₽. Баллами можно оплатить до 50% чека.</li>
+          <li>Баллы начисляются на сумму чека после скидок и действуют 12 месяцев.</li>
+          <li>Бонусы действуют в зале и при заказе на самовывоз, акции не суммируются.</li>
+          <li>В день рождения начисляем 500 приветственных баллов.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="contacts" id="contacts">
+    <div class="wrap">
+      <div class="card">
+        <h3>Часы работы</h3>
+        <dl>
+          <dt>Пн–Чт</dt><dd>12:00 – 23:00</dd>
+          <dt>Пт–Сб</dt><dd>12:00 – 01:00</dd>
+          <dt>Вс</dt><dd>12:00 – 22:00</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <h3>Как нас найти</h3>
+        <p>Москва, ул. Тверская, 18, строение 2</p>
+        <p>5 минут пешком от метро «Пушкинская»</p>
+        <p>Телефон: <a href="tel:+74950000000">+7 (495) 000-00-00</a></p>
+        <p>Почта: <a href="mailto:hello@zolotoylotos.example">hello@zolotoylotos.example</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <b>Золотой Лотос</b><br>© 2026 Все права защищены
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('burger'),n=document.getElementById('nav');
+  b.addEventListener('click',function(){
+    var o=n.classList.toggle('open');
+    b.setAttribute('aria-expanded',o);
+    b.textContent=o?'✕':'☰';
+  });
+  n.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){n.classList.remove('open');b.setAttribute('aria-expanded',false);b.textContent='☰';}
+  });
+})();
+</script>
+</body>
+</html>
