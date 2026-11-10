@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сравнение логотипов — Золотой Лотос</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--emerald:#0E3B32;--gold:#D4A94A;--gold-2:#F0CF86;--bg:#FBF5E6;--surface:#fff;--ink:#23201A;--muted:#645D4C;--line:#E8DDBF;--serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;--sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--sans)}
+header{background:var(--emerald);border-bottom:1px solid rgba(212,169,74,.45);padding:24px 20px;text-align:center}
+header h1{margin:0;color:var(--gold-2);font:700 clamp(1.8rem,5vw,2.7rem)/1.1 var(--serif)}
+main{width:min(980px,100% - 40px);margin:48px auto}
+.intro{margin:0 auto 30px;max-width:62ch;text-align:center;color:var(--muted)}
+.comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.variant{overflow:hidden;border:1px solid var(--line);border-radius:18px;background:var(--surface);box-shadow:0 12px 30px rgba(14,59,50,.08)}
+.variant h2{margin:0;padding:16px 20px;font:700 1.4rem/1.2 var(--serif);color:var(--emerald)}
+.preview{min-height:110px;display:flex;align-items:center;padding:22px;background:rgba(14,59,50,.94);border-block:1px solid rgba(212,169,74,.35)}
+.logo{display:flex;align-items:center;gap:10px;color:var(--gold-2);font:700 1.55rem/1.1 var(--serif);text-decoration:none}
+.original-mark{width:34px;height:34px;flex:none;display:grid;place-items:center;border-radius:50%;background:var(--gold);color:var(--emerald);font-size:1.05rem}
+.lotus-mark{display:block;width:50px;height:50px;flex:none;object-fit:cover;border:1px solid rgba(240,207,134,.8);border-radius:50%;background:radial-gradient(circle at 30% 25%,var(--gold-2),var(--gold) 60%,#A87F2B);mix-blend-mode:screen;box-shadow:0 3px 12px rgba(0,0,0,.24);animation:appear .65s ease-out both}
+.caption{margin:0;padding:15px 20px 19px;color:var(--muted);font-size:.92rem}
+@keyframes appear{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){main{margin:32px auto}.comparison{grid-template-columns:1fr;gap:18px}.preview{min-height:100px}}
+@media(prefers-reduced-motion:reduce){.lotus-mark{animation:none}}
+</style>
+</head>
+<body>
+<header><h1>Сравнение логотипов</h1></header>
+<main>
+  <p class="intro">Оба варианта показаны на одинаковом изумрудном фоне с фирменной золотой надписью. Исходный логотип на главной странице сайта не изменён.</p>
+  <div class="comparison">
+    <article class="variant">
+      <h2>1. Исходный вариант</h2>
+      <div class="preview">
+        <a class="logo" href="#" aria-label="Золотой Лотос">
+          <b class="original-mark" aria-hidden="true">蓮</b><span>Золотой Лотос</span>
+        </a>
+      </div>
+      <p class="caption">Золотой круг с иероглифом — действующий логотип сайта.</p>
+    </article>
+    <article class="variant">
+      <h2>2. Вариант с фотографией</h2>
+      <div class="preview">
+        <a class="logo" href="#" aria-label="Золотой Лотос">
+          <img class="lotus-mark" src="images/golden_lotus.jpg" alt="Фотография цветка лотоса"><span>Золотой Лотос</span>
+        </a>
+      </div>
+      <p class="caption">Фотография лотоса вписана в золотой круг с сохранением пропорций.</p>
+    </article>
+  </div>
+</main>
+</body>
+</html>

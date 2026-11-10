@@ -41,7 +41,7 @@ section{padding:clamp(64px,9vw,112px) 0}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(14,59,50,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,169,74,.35)}
 .bar{display:flex;align-items:center;justify-content:space-between;height:68px}
 .logo{font-family:var(--serif);font-size:1.55rem;font-weight:700;color:var(--gold-2);text-decoration:none;display:flex;align-items:center;gap:10px}
-.logo b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--gold);color:var(--emerald);font-size:1.05rem}
+.brand-mark{display:block;width:40px;height:40px;flex:none;border:1px solid var(--gold-2);border-radius:50%;background:var(--gold);object-fit:cover;mix-blend-mode:screen}
 nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
 nav a{color:#EFE6CC;text-decoration:none;font-size:.95rem;font-weight:500;position:relative;padding:6px 0}
 nav a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s}
@@ -55,7 +55,7 @@ nav a:hover::after{transform:scaleX(1)}
 .btn.ghost:hover{background:rgba(240,207,134,.12);box-shadow:none}
 
 /* Hero */
-.hero{background:radial-gradient(900px 500px at 80% 20%,var(--emerald-2),transparent 70%),var(--emerald);color:#F6EEDA;padding:clamp(72px,12vw,140px) 0;overflow:hidden}
+.hero{background-image:linear-gradient(rgba(14,59,50,.62),rgba(14,59,50,.62)),url("images/back_ground_main_p.jpg");background-size:cover;background-position:center;background-repeat:no-repeat;color:#F6EEDA;padding:clamp(72px,12vw,140px) 0;overflow:hidden}
 .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
 .hero h1{font-size:clamp(2.8rem,8vw,5.6rem);color:var(--gold-2)}
 .hero p{font-size:1.2rem;max-width:46ch;margin:22px 0 34px;color:#E3DAC0}
@@ -63,7 +63,7 @@ nav a:hover::after{transform:scaleX(1)}
 .seal{position:relative;width:min(340px,80vw);aspect-ratio:1;margin-inline:auto;display:grid;place-items:center}
 .seal::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px dashed var(--gold);animation:spin 40s linear infinite}
 .seal::after{content:"";position:absolute;inset:26px;border-radius:50%;border:1px solid rgba(240,207,134,.5)}
-.seal span{font-family:var(--serif);font-size:clamp(5rem,16vw,8rem);color:var(--emerald);width:62%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 30% 25%,var(--gold-2),var(--gold) 60%,#A87F2B);box-shadow:0 20px 50px rgba(0,0,0,.4);line-height:1}
+.seal-mark{display:block;width:90%;aspect-ratio:1;border:2px solid var(--gold-2);border-radius:50%;background:radial-gradient(circle at 30% 25%,var(--gold-2),var(--gold) 60%,#A87F2B);box-shadow:0 20px 50px rgba(0,0,0,.4);object-fit:cover;object-position:center 58%;mix-blend-mode:screen}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* About */
@@ -149,7 +149,7 @@ footer b{color:var(--gold-2);font-family:var(--serif);font-size:1.2rem}
 
 <header>
   <div class="wrap bar">
-    <a class="logo" href="#top"><b>蓮</b>Золотой Лотос</a>
+    <a class="logo" href="#top"><img class="brand-mark" src="images/golden_lotus.jpg" alt="">Золотой Лотос</a>
     <button class="burger" aria-label="Открыть меню" aria-expanded="false" id="burger">☰</button>
     <nav id="nav" aria-label="Основная навигация">
       <ul>
@@ -174,7 +174,7 @@ footer b{color:var(--gold-2);font-family:var(--serif);font-size:1.2rem}
           <a class="btn ghost" href="#menu">Смотреть меню</a>
         </div>
       </div>
-      <div class="seal" aria-hidden="true"><span>蓮</span></div>
+      <div class="seal" aria-hidden="true"><img class="seal-mark" src="images/golden_lotus.jpg" alt=""></div>
     </div>
   </section>
 
