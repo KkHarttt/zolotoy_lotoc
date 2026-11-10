@@ -81,8 +81,7 @@ nav a:hover::after{transform:scaleX(1)}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .dish{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px;transition:transform .35s,box-shadow .35s,border-color .35s}
 .dish:hover{transform:translateY(-8px);box-shadow:0 22px 40px rgba(14,59,50,.16);border-color:var(--gold)}
-.glyph{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:2.4rem;color:var(--gold-2);background:linear-gradient(135deg,var(--emerald),var(--jade));margin-bottom:18px;transition:transform .5s}
-.dish:hover .glyph{transform:rotate(12deg) scale(1.08)}
+.dish-image{display:block;width:100%;height:200px;object-fit:cover;border-radius:14px;margin-bottom:18px}
 .dish h3{font-size:1.6rem;margin-bottom:8px}
 .dish p{margin:0 0 16px;color:var(--muted);font-size:.97rem}
 .price{font-weight:700;color:var(--lacquer)}
@@ -202,12 +201,12 @@ footer b{color:var(--gold-2);font-family:var(--serif);font-size:1.2rem}
         <p class="lead">Шесть позиций, с которых мы советуем начать знакомство с нашей кухней.</p>
       </div>
       <div class="grid">
-        <article class="dish"><div class="glyph" aria-hidden="true">鸭</div><h3>Утка по-пекински</h3><p>Хрустящая корочка, тонкие блинчики, соус хойсин и свежий огурец.</p><span class="price">2 400 ₽</span></article>
-        <article class="dish"><div class="glyph" aria-hidden="true">点</div><h3>Димсамы с креветками</h3><p>Паровые корзинки с прозрачным тестом и сочной начинкой.</p><span class="price">690 ₽</span></article>
-        <article class="dish"><div class="glyph" aria-hidden="true">鸡</div><h3>Курица Кунг Пао</h3><p>Обжаренная в воке курица с арахисом, чили и сычуаньским перцем.</p><span class="price">620 ₽</span></article>
-        <article class="dish"><div class="glyph" aria-hidden="true">豆</div><h3>Мапо тофу</h3><p>Нежный тофу в пряном соусе с фаршем. Для любителей остренького.</p><span class="price">540 ₽</span></article>
-        <article class="dish"><div class="glyph" aria-hidden="true">面</div><h3>Лапша ручной вытяжки</h3><p>Свежая лапша в наваристом бульоне с томлёной говядиной.</p><span class="price">580 ₽</span></article>
-        <article class="dish"><div class="glyph" aria-hidden="true">猪</div><h3>Свинина в кисло-сладком соусе</h3><p>Золотистые кусочки в яркой глазури из ананаса и рисового уксуса.</p><span class="price">640 ₽</span></article>
+        <article class="dish"><img class="dish-image" src="images/peking_duck.jpg" alt="Утка по-пекински с хрустящей корочкой"><h3>Утка по-пекински</h3><p>Хрустящая корочка, тонкие блинчики, соус хойсин и свежий огурец.</p><span class="price">2 400 ₽</span></article>
+        <article class="dish"><img class="dish-image" src="images/dimsams_w_shrimps.jpg" alt="Димсамы с креветками"><h3>Димсамы с креветками</h3><p>Паровые корзинки с прозрачным тестом и сочной начинкой.</p><span class="price">690 ₽</span></article>
+        <article class="dish"><img class="dish-image" src="images/kung_pao_chicken.jpg" alt="Курица Кунг Пао с арахисом и чили"><h3>Курица Кунг Пао</h3><p>Обжаренная в воке курица с арахисом, чили и сычуаньским перцем.</p><span class="price">620 ₽</span></article>
+        <article class="dish"><img class="dish-image" src="images/mapo_tofu.jpg" alt="Тофу мапо в пряном соусе"><h3>Мапо тофу</h3><p>Нежный тофу в пряном соусе с фаршем. Для любителей остренького.</p><span class="price">540 ₽</span></article>
+        <article class="dish"><img class="dish-image" src="images/manual_noodles.jpg" alt="Домашняя лапша с томлёной говядиной"><h3>Лапша ручной вытяжки</h3><p>Свежая лапша в наваристом бульоне с томлёной говядиной.</p><span class="price">580 ₽</span></article>
+        <article class="dish"><img class="dish-image" src="images/pork_s:s_sauce.jpg" alt="Свинина в кисло-сладком соусе"><h3>Свинина в кисло-сладком соусе</h3><p>Золотистые кусочки в яркой глазури из ананаса и рисового уксуса.</p><span class="price">640 ₽</span></article>
       </div>
     </div>
   </section>
